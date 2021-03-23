@@ -10,8 +10,8 @@
     <!-- 갤러리 스크립트 -->
     
     <!-- style -->
-    <link rel="stylesheet" href="css/reset32.css">
-    <link rel="stylesheet" href="css/style32.css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/slick.css">
     
     <!-- 웹 폰트 -->
@@ -459,10 +459,32 @@
     </div>
     <!-- //wrap -->
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/slick.min.js"></script>
     <script>
+        //탭 메뉴
+		var $tab_list = $('.tab_menu');
+        
+		$tab_list.find('ul ul').hide();
+		$tab_list.find('li.active>ul').show();
+
+        function tabMenu(e){
+            e.preventDefault();
+			var $this = $(this);
+            $this.next('ul').show().parent('li').addClass('active').siblings('li').removeClass('active').find('>ul').hide();
+		}
+		$tab_list.find('>ul>li>a').click(tabMenu).focus(tabMenu);
+             
+        //배너
+        $('.ban').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            dots: true
+        });
+        
         //갤러리
         $('.gallery_img').slick({
             dots: true,
@@ -491,54 +513,18 @@
         $('.next').on('click', function(){
             $('.gallery_img').slick('slickNext');
         });
-
-        //탭 메뉴
-		var $tab_list = $('.tab_menu');
         
-		$tab_list.find('ul ul').hide();
-		$tab_list.find('li.active>ul').show();
-
-        function tabMenu(e){
-            e.preventDefault();
-			var $this = $(this);
-            $this.next('ul').show().parent('li').addClass('active').siblings('li').removeClass('active').find('>ul').hide();
-		}
-		$tab_list.find('>ul>li>a').click(tabMenu).focus(tabMenu);
-             
-        //배너
-        $('.ban').slick({
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            dots: true
-        });
-
-        //전체 메뉴 (버튼을 누르면 전체 메뉴를 보이게 한다.)
-        $(".tit .btn").click(function(e){
-            e.preventDefault();
+        //전체 메뉴
+        $(".tit .btn").click(function(){
             //$("#cont_nav").css("display","block");
             //$("#cont_nav").show();
             //$("#cont_nav").fadeIn();
             //$("#cont_nav").slideDown();
             //$("#cont_nav").toggle();
             //$("#cont_nav").fadeToggle();
-            $("#cont_nav").slideToggle(200);
+            $("#cont_nav").slideToggle();
             $(this).toggleClass("on");
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

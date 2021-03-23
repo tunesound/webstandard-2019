@@ -7,12 +7,12 @@
     <meta name="keywords" content="웹표준, 웹접근성, 샘플사이트">
     <meta name="generator" content="brackets">
     <title>WEBSTANDARD SITE</title>
-    <!-- 배너 스크립트 -->
-    
+    <!-- 베너 스크립트 -->
+
     <!-- style -->
-    <link rel="stylesheet" href="css/reset30.css">
-    <link rel="stylesheet" href="css/style30.css">
-    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
     
     <!-- 웹 폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
@@ -444,11 +444,9 @@
     </div>
     <!-- //wrap -->
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/slick.min.js"></script>
     <script>
-        
         //배너
         $('.ban').slick({
             infinite: true,
@@ -459,7 +457,7 @@
             dots: true
         });
 
-        //전체 메뉴 (버튼을 누르면 전체 메뉴를 보이게 한다.)
+        //전체 메뉴
         $(".tit .btn").click(function(e){
             e.preventDefault();
             //$("#cont_nav").css("display","block");
@@ -468,21 +466,9 @@
             //$("#cont_nav").slideDown();
             //$("#cont_nav").toggle();
             //$("#cont_nav").fadeToggle();
-            $("#cont_nav").slideToggle(200);
+            $("#cont_nav").slideToggle();
             $(this).toggleClass("on");
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
